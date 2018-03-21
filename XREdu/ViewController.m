@@ -20,17 +20,12 @@
     webView = [[UIWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [webView setDelegate:self];
     
-    
-    
     //NSString *path = [[NSBundle mainBundle]pathForResource:@"bg"ofType:@"jpg"];
     //webView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:path]];
-    webView.detectsPhoneNumbers = YES;//自动检测网页上的电话号码，单击可以拨打
+    //webView.detectsPhoneNumbers = YES;//自动检测网页上的电话号码，单击可以拨打
 
     [self.view addSubview: webView];
     [self loadWebview];
-    
-    
-    
     
     // NSLog(@"-----------test：%@-----------------",serverIP);
     // Do any additional setup after loading the view, typically from a nib.
