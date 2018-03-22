@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [UIApplication sharedApplication].statusBarHidden =YES;
     webView = [[UIWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [webView setDelegate:self];
     
@@ -46,7 +46,7 @@
     }
     else
     {
-        NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:serverIP]];
+        NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/apphome/weixin/wxjxt/applogin" ,serverIP]]];
         [webView loadRequest:request];
     }
     
@@ -146,6 +146,7 @@
         {
             NSString *js = [NSString stringWithFormat:@"alert('%@')",@"设置成功"];
             [webView stringByEvaluatingJavaScriptFromString:js];
+            [self loadWebview];
         }
         else
         {
@@ -172,6 +173,15 @@
     context[@"initsystem"]=^(){
         [self loadWebview];
     };
+    
+    
+    context[@"loadset"]=^(){
+        NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"wwwroot/html/set/bind_serverip.html" withExtension:nil];
+        NSURLRequest *request = [NSURLRequest requestWithURL:fileURL];
+        [webView loadRequest:request];
+    };
+    
+    
 }
 - (void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {

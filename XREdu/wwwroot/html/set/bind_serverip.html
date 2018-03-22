@@ -37,7 +37,7 @@
             <div id="main" class="main">
                 <div style="width: 100%;  padding-top:50%;   text-align: left;">服务器地址：</div>
                 
-                <input type="text" id="serverip" style="width: 98%;height:1.5em;margin-top:15px;background: #5ea5ce;" value="http://192.168.1.100"  />
+                <input type="text" id="serverip" style="width: 98%;height:1.5em;margin-top:15px;background: #5ea5ce;" value="http://app.xieruinet.com"  />
             </div>
             <div style="margin-top:10%;text-align: center;">
                 <input class="bluebutton" style="width:30%;height: 2em;" type="button" onclick="SetIosIP()" value="提  交"  />
@@ -57,7 +57,7 @@
         function SetIosIP() {
             var str_url = $("#serverip").val();
             if (IsURL(str_url)) {
-                setserverip(str_url);
+                setserverip(str_url); 
             }
             else { alert("请输入有效服务器地址！"); }
         }
